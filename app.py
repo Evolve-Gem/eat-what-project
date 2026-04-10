@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from recommend2 import load_food_data, recommend_food  # 调用你现有逻辑
+import os
 
 app = Flask(__name__)
 foods = load_food_data("food_data.csv")  # 加载一次 CSV
