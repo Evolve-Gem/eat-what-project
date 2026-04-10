@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>🍽️ 吃什么呢 - 推荐系统</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4A90E2;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        select, button {
+            margin-top: 5px;
+            padding: 6px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357ABD;
+        }
+        .recommendation {
+            display: flex;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        .recommendation img {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-left: 20px;
+        }
+        .info {
+            flex: 1;
+        }
+        .tags span {
+            background-color: #d0e6ff;
+            padding: 2px 6px;
+            border-radius: 5px;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🍽️ 吃什么呢 - 推荐系统</h1>
+
+    <form action="/recommend" method="post">
+        <label for="mood">选择你的心情:</label>
+        <select name="mood" id="mood">
+            <option value="解压">解压</option>
+            <option value="开心">开心</option>
+            <option value="自律">自律</option>
+            <option value="普通">普通</option>
+            <option value="赶时间">赶时间</option>
+        </select>
+
+        <label for="taste">选择口味（可多选，按 Ctrl/Command 多选）:</label>
+        <select name="taste" id="taste" multiple size="5">
+            <option value="辣">辣</option>
+            <option value="清淡">清淡</option>
+            <option value="油炸">油炸</option>
+            <option value="健康">健康</option>
+            <option value="家常">家常</option>
+        </select>
+
+        <label for="time">选择出餐时间:</label>
+        <select name="time" id="time">
+            <option value="快">快</option>
+            <option value="中">中</option>
+            <option value="慢">慢</option>
+        </select>
+
+        <br><br>
+        <button type="submit">推荐菜品</button>
+    </form>
+
+    {% if recommendations %}
+        <h2>推荐结果:</h2>
+        {% for food in recommendations %}
+            <div class="recommendation">
+                <div class="info">
+                    <strong>{{ food['name'] }}（价格：{{ food['price'] }}元）</strong><br>
+                    匹配分数: {{ food['score'] }}<br>
+                    理由:
+                    <div class="tags">
+                        {% for reason in food['reasons'] %}
+                            <span>{{ reason }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <img src="{{ url_for('static', filename='images/' ~ food['name'] ~ '.png') }}"
+                     alt="{{ food['name'] }}" style="width:100px;height:auto;">
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+</body>
+</html>
