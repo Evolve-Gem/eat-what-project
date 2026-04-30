@@ -17,25 +17,20 @@
 
 ## 页面展示
 
-### 首页
+| 首页 | 规则推荐选择页 |
+|---|---|
+| <img src="docs/images/home.png" width="260"> | <img src="docs/images/choose.png" width="260"> |
 
-![首页](docs/images/home.png)
+| 规则推荐结果页 | AI 自然语言输入页 |
+|---|---|
+| <img src="docs/images/result.png" width="260"> | <img src="docs/images/ai-input.png" width="260"> |
 
-### 规则推荐选择页
+| AI 推荐结果页 |AI 推荐结果页 |
+|---|---|
+| <img src="docs/images/ai-result.png" width="260"> | <img src="docs/images/ai-result2.png" width="260"> |
 
-![规则推荐选择页](docs/images/choose.png)
 
-### 规则推荐结果页
 
-![规则推荐结果页](docs/images/result.png)
-
-### AI 自然语言输入页
-
-![AI自然语言输入页](docs/images/ai-input.png)
-
-### AI 推荐结果页
-
-![AI推荐结果页](docs/images/ai-result.png)
 
 ---
 
