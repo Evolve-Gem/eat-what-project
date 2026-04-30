@@ -14,6 +14,31 @@
 
 ---
 
+
+## 页面展示
+
+### 首页
+
+![首页](docs/images/home.png)
+
+### 规则推荐选择页
+
+![规则推荐选择页](docs/images/choose.png)
+
+### 规则推荐结果页
+
+![规则推荐结果页](docs/images/result.png)
+
+### AI 自然语言输入页
+
+![AI自然语言输入页](docs/images/ai-input.png)
+
+### AI 推荐结果页
+
+![AI推荐结果页](docs/images/ai-result.png)
+
+---
+
 ## 项目亮点
 
 - 完成微信小程序前端、Flask 后端、云端部署与小程序版本上传，形成完整项目闭环
